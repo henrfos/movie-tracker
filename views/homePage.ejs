@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <h1>Movie tracker</h1>
+    <form action="/search" method="get">
+        <input type="text" name="q" placeholder="Search for movies...">
+        <button type="submit">Search</button>
+    </form>
+  </body>
+</html>

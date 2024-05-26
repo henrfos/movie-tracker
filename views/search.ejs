@@ -6,5 +6,28 @@
   </head>
   <body>
     <%- include('partials/navbar.ejs') %>
+    <h1>Search Results</h1>
+    <form action="/search" method="get">
+      <input type="text" name="q" placeholder="Search for movies...">
+      <button type="submit">Search</button>
+  </form>
+    <% if (movies.length > 0) { %>
+      <ul>
+        <% movies.forEach(movie => { %>
+          <li>
+            <%= movie.Title %> (<%= movie.Year %>)
+            <p>Genre: <%= movie.Genre %></p>
+            <p>Director: <%= movie.Director %></p>
+            <p>Actors: <%= movie.Actors %></p>
+            <p>IMDB rating: <%= movie.imdbRating %></p>
+            <% if (movie.Poster === 'N/A') { %>
+              <p>No picture found</p>
+            <% } else { %>
+              <img src="<%= movie.Poster %>" alt="Poster of <%= movie.Title %>">
+            <% } %>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
   </body>
 </html>

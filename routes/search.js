@@ -5,7 +5,7 @@ const axios = require('axios');
 const API_KEY = '6a0af1fd';
 
 router.get('/', async (req, res) => {
-  const query = req.query.q;
+  const query = req.query.searchQuery;
   if (query) {
     try {
       const searchResponse = await axios.get(`http://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`);

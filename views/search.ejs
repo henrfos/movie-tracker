@@ -8,7 +8,7 @@
     <%- include('partials/navbar.ejs') %>
     <h1>Search Results</h1>
     <form action="/search" method="get">
-      <input type="text" name="q" placeholder="Search for movies...">
+      <input type="text" name="searchQuery" placeholder="Search for movies...">
       <button type="submit">Search</button>
   </form>
     <% if (movies.length > 0) { %>

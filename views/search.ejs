@@ -1,33 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Searcg</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+</head>
+<body>
     <%- include('partials/navbar.ejs') %>
-    <h1>Search Results</h1>
-    <form action="/search" method="get">
-      <input type="text" name="searchQuery" placeholder="Search for movies...">
-      <button type="submit">Search</button>
-  </form>
-    <% if (movies.length > 0) { %>
-      <ul>
-        <% movies.forEach(movie => { %>
-          <li>
-            <%= movie.Title %> (<%= movie.Year %>)
-            <p>Genre: <%= movie.Genre %></p>
-            <p>Director: <%= movie.Director %></p>
-            <p>Actors: <%= movie.Actors %></p>
-            <p>IMDB rating: <%= movie.imdbRating %></p>
-            <% if (movie.Poster === 'N/A') { %>
-              <p>No picture found</p>
-            <% } else { %>
-              <img src="<%= movie.Poster %>" alt="Poster of <%= movie.Title %>">
-            <% } %>
-          </li>
-        <% }) %>
-      </ul>
-    <% } %>
-  </body>
+
+    <!-- Search Bar -->
+    <section class="search-bar">
+        <form action="/search" method="get">
+            <input type="text" name="searchQuery" placeholder="Search for movies you have watched...">
+            <button type="submit"><i class="bi bi-search"></i></button>
+        </form>
+    </section>
+
+    <!-- Search Results -->
+    <div class="container">
+        <% if (movies.length > 0) { %>
+            <h1>Search Results</h1>
+            <div class="movie-grid">
+                <% movies.forEach(movie => { %>
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <% if (movie.Poster === 'N/A') { %>
+                                <p>No picture found</p>
+                            <% } else { %>
+                                <img src="<%= movie.Poster %>" alt="Poster of <%= movie.Title %>">
+                            <% } %>
+                        </div>
+                        <div class="movie-info">
+                            <h2><%= movie.Title %> (<%= movie.Year %>)</h2>
+                            <p><strong>Genre:</strong> <%= movie.Genre %></p>
+                            <p><strong>Director:</strong> <%= movie.Director %></p>
+                            <p><strong>Actors:</strong> <%= movie.Actors %></p>
+                            <p><strong>IMDB rating:</strong> <%= movie.imdbRating %></p>
+                            <button class="btn add-to-profile">Add to Profile</button>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+
+</body>
 </html>

@@ -3,13 +3,86 @@
   <head>
     <title>Homepage</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/homePage.css' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   </head>
   <body>
     <%- include('partials/navbar.ejs') %>
-    <h1>Movie tracker</h1>
+    <section class="hero">
+      <img src="/images/movies.jpg" alt="Movies background">
+      <div class="overlay">
+          <h1>Track Your Movies, Anytime, Anywhere</h1>
+          <p>Search, add, and review the movies you've watched.</p>
+          <div class="cta-buttons">
+              <button class="btn">Get Started</button>
+              <button class="btn">Learn More</button>
+          </div>
+      </div>
+  </section>
+
+  <!-- Search Bar -->
+  <section class="search-bar">
     <form action="/search" method="get">
-        <input type="text" name="q" placeholder="Search for movies...">
-        <button type="submit">Search</button>
+      <input type="text" name="searchQuery" placeholder="Search for movies you have watched...">
+      <button type="submit"><i class="bi bi-search"></i></button>
     </form>
-  </body>
+  </section>
+
+  <!-- Featured Movies -->
+  <section class="featured-movies">
+      <h2>Featured Movies</h2>
+      <div class="movie-carousel">
+          <!-- Movie Posters -->
+          <div class="movie-poster">Movie 1</div>
+          <div class="movie-poster">Movie 2</div>
+          <div class="movie-poster">Movie 3</div>
+      </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps">
+          <div class="step">
+              <i class="fas fa-search"></i>
+              <p>Search for a movie</p>
+          </div>
+          <div class="step">
+              <i class="fas fa-list"></i>
+              <p>Add it to your profile</p>
+          </div>
+          <div class="step">
+              <i class="fas fa-star"></i>
+              <p>Rate and review</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- Sign up -->
+  <section class="cta">
+      <h2>Join Movie Tracker Today!</h2>
+      <button class="btn">Sign Up Now</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+      <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+      </ul>
+      <div class="social-media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="newsletter">
+          <input type="email" placeholder="Subscribe to our newsletter">
+          <button>Subscribe</button>
+      </div>
+      <p>© 2024 Movie Tracker. All rights reserved.</p>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </html>

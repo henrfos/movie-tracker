@@ -95,15 +95,14 @@
     gap: 20px;
 }
 
-.movie-poster {
-    width: 150px;
-    height: 225px;
-    background-color: #333;
+.movie-poster img {
+    width: 175px;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
 }
+
 
 .how-it-works {
     padding: 40px;

@@ -17,13 +17,13 @@ router.get('/', async (req, res) => {
         return detailsResponse.data;
       }));
       
-      res.render('search', { movies });
+      res.render('search', { movies, searchQuery: query });
     } catch (error) {
       console.error(error);
-      res.render('search', { movies: [] });
+      res.render('search', { movies: [], searchQuery: query });
     }
   } else {
-    res.render('search', { movies: [] });
+    res.render('search', { movies: [], searchQuery: '' });
   }
 });
 

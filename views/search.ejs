@@ -14,15 +14,15 @@
     <!-- Search Bar -->
     <section class="search-bar">
         <form action="/search" method="get">
-            <input type="text" name="searchQuery" placeholder="Search for movies you have watched...">
-            <button type="submit"><i class="bi bi-search"></i></button>
+            <input type="text" name="searchQuery" placeholder="Search for movies you have watched..." value="<%= searchQuery %>">
+            <button type="submit"><i class="bi bi-search"></i>Search</button>
         </form>
     </section>
 
     <!-- Search Results -->
     <div class="container">
-        <% if (movies.length > 0) { %>
-            <h1>Search Results</h1>
+        <% if (searchQuery && movies.length > 0) { %>
+            <h1>Search results for "<%= searchQuery %>"</h1>
             <div class="movie-grid">
                 <% movies.forEach(movie => { %>
                     <div class="movie-card">
@@ -44,6 +44,8 @@
                     </div>
                 <% }) %>
             </div>
+        <% } else if (searchQuery) { %>
+            <h1>No results found for "<%= searchQuery %>"</h1>
         <% } %>
     </div>
 

@@ -4,8 +4,13 @@
       <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/search">Search Movies</a></li>
-          <li><a href="/profile">My Profile</a></li>
-          <li><a href="/login">Sign In</a></li>
+          <% if (user) { %>
+              <li><a href="/profile">My Profile (<%= user.username %>)</a></li>
+              <li><a href="/users/logout">Logout</a></li>
+          <% } else { %>
+              <li><a href="/profile">My Profile</a></li>
+              <li><a href="/login">Sign In</a></li>
+          <% } %>
       </ul>
   </nav>
 </header>

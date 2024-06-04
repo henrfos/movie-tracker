@@ -8,33 +8,22 @@
     <%- include('partials/navbar.ejs') %>
     <h1>Movie tracker</h1>
     <h1>Login</h1>
-    <form action="/login" method="POST">
+    <form action="/users/login" method="post">
       <div>
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
+        <label>Username:</label>
+        <input type="text" name="username">
       </div>
       <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
+        <label>Password:</label>
+        <input type="password" name="password">
       </div>
-      <button type="submit">Login</button>
+      <div>
+        <button type="submit">Login</button>
+      </div>
     </form>
-
-    <h1>Register</h1>
-    <form action="/register" method="POST">
-      <div>
-        <label for="name">Name:</label>
-        <input type="text" name="name" required>
-      </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" name="email" required>
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
-      </div>
-      <button type="submit">Register</button>
-      </form>
+    <div>
+      <p>Don't have an account?</p>
+      <button onclick="window.location.href='/register'">Register</button>
+    </div>
   </body>
 </html>

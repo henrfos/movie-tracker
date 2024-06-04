@@ -39,7 +39,7 @@
                             <p><strong>Director:</strong> <%= movie.Director %></p>
                             <p><strong>Actors:</strong> <%= movie.Actors %></p>
                             <p><strong>IMDB rating:</strong> <%= movie.imdbRating %></p>
-                            <button class="btn add-to-profile">Add to Profile</button>
+                            <button class="btn add-to-profile" onclick="addToProfile('<%= movie.imdbID %>', '<%= movie.Title %>', '<%= movie.Year %>', '<%= movie.Genre %>', '<%= movie.Director %>', '<%= movie.Actors %>', '<%= movie.imdbRating %>')">Add to Profile</button>
                         </div>
                     </div>
                 <% }) %>
@@ -48,6 +48,27 @@
             <h1>No results found for "<%= searchQuery %>"</h1>
         <% } %>
     </div>
-
+    <script>
+        function addToProfile(movieId, title, year, genre, director, actors, imdbRating) {
+          fetch('/profile/add', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ movieId, title, year, genre, director, actors, imdbRating })
+          })
+          .then(response => {
+            if (response.ok) {
+              alert('Movie added to your profile!');
+            } else {
+              alert('Failed to add movie to profile.');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to add movie to profile.');
+          });
+        }
+      </script>
 </body>
 </html>

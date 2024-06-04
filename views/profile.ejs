@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Profile</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+</head>
+<body>
     <%- include('partials/navbar.ejs') %>
-    <h1>Profile</h1>
-  </body>
+
+    <div class="container">
+        <h2>My Movies</h2>
+        <div class="movie-grid">
+            <% userMovies.forEach(movie => { %>
+                <div class="movie-card">
+                    <div class="movie-info">
+                        <h2><%= movie.title %> (<%= movie.year %>)</h2>
+                        <p><strong>Genre:</strong> <%= movie.genre %></p>
+                        <p><strong>Director:</strong> <%= movie.director %></p>
+                        <p><strong>Actors:</strong> <%= movie.actors %></p>
+                        <p><strong>IMDB rating:</strong> <%= movie.imdbRating %></p>
+                        <form action="/profile/rate" method="post">
+                            <input type="hidden" name="id" value="<%= movie.id %>">
+                            <label for="userRating">Your Rating:</label>
+                            <input type="number" name="userRating" min="1" max="10" value="<%= movie.userRating %>">
+                            <label for="review">Your Review:</label>
+                            <textarea name="review"><%= movie.review %></textarea>
+                            <button type="submit">Save</button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
 </html>

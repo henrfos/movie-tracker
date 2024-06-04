@@ -28,5 +28,3 @@ router.get('/', async (req, res) => {
 });
 
 module.exports = router;
-
-//http://www.omdbapi.com/?apikey=6a0af1fd&

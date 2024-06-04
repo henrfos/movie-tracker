@@ -11,16 +11,19 @@
     <%- include('partials/navbar.ejs') %>
 
     <div class="container">
-        <h2>My Movies</h2>
+        <h1>My Movies</h1>
         <div class="movie-grid">
             <% userMovies.forEach(movie => { %>
                 <div class="movie-card">
+                    <div class="movie-poster">
+                        <% if (movie.poster === 'N/A') { %>
+                            <p>No picture found</p>
+                        <% } else { %>
+                            <img src="<%= movie.poster %>" alt="Poster of <%= movie.title %>">
+                        <% } %>
+                    </div>
                     <div class="movie-info">
                         <h2><%= movie.title %> (<%= movie.year %>)</h2>
-                        <p><strong>Genre:</strong> <%= movie.genre %></p>
-                        <p><strong>Director:</strong> <%= movie.director %></p>
-                        <p><strong>Actors:</strong> <%= movie.actors %></p>
-                        <p><strong>IMDB rating:</strong> <%= movie.imdbRating %></p>
                         <form action="/profile/rate" method="post">
                             <input type="hidden" name="id" value="<%= movie.id %>">
                             <label for="userRating">Your Rating:</label>

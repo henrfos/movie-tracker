@@ -17,7 +17,7 @@ router.get('/', ensureAuthenticated, async (req, res) => {
 // Add a movie to the profile
 router.post('/add', ensureAuthenticated, async (req, res) => {
   try {
-    const { movieId, title, year, genre, director, actors, imdbRating } = req.body;
+    const { movieId, title, year, genre, director, actors, imdbRating, poster } = req.body;
     await db.UserMovie.create({
       userId: req.user.id,
       movieId,
@@ -26,7 +26,8 @@ router.post('/add', ensureAuthenticated, async (req, res) => {
       genre,
       director,
       actors,
-      imdbRating
+      imdbRating,
+      poster
     });
     res.redirect('/profile');
   } catch (error) {

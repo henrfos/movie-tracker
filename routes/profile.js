@@ -53,4 +53,19 @@ router.post('/rate', ensureAuthenticated, async (req, res) => {
   }
 });
 
+// Delete a movie from the profile
+router.post('/delete', ensureAuthenticated, async (req, res) => {
+  try {
+    const { id } = req.body;
+    const userMovie = await db.UserMovie.findOne({ where: { id, userId: req.user.id } });
+    if (userMovie) {
+      await userMovie.destroy();
+    }
+    res.redirect('/profile');
+  } catch (error) {
+    console.error(error);
+    res.redirect('/profile');
+  }
+});
+
 module.exports = router;

@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+require('dotenv').config();
+
+API_KEY = process.env.API;
 
 router.get('/', async (req, res) => {
   const query = req.query.searchQuery;

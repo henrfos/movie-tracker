@@ -14,7 +14,7 @@ router.post('/register', async (req, res) => {
       username,
       password: hashedPassword
     });
-    res.status(201).json({ message: 'User registered successfully', user: newUser });
+    res.redirect('/login');
   } catch (error) {
     res.status(500).json({ message: 'Error registering user', error });
   }

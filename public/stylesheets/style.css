@@ -18,6 +18,11 @@ header {
   font-weight: bold;
 }
 
+.logo a {
+  text-decoration: none; /* Removes the underline */
+  color: white; /* Makes the text white */
+}
+
 nav ul {
   list-style: none;
   display: flex;

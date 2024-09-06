@@ -37,7 +37,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false
     },
     userRating: {
-      type: Sequelize.INTEGER,
+      type: Sequelize.DECIMAL(3, 1),
       allowNull: true
     },
     review: {

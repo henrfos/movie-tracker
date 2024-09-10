@@ -43,7 +43,11 @@ HOST = your-database-host
 
 API = your-API-key from https://www.omdbapi.com/apikey.aspx
 ```
-
+5. Run the application:
+```bash
+npm start
+```
+6. Open your browser and go to http://localhost:3000 to access the app.
 
 
 Happy movie browsing!

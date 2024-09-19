@@ -17,6 +17,12 @@ router.get('/', async (req, res) => {
       }
       
       let movies = searchResponse.data.Search || [];
+
+      // Fetch detailed information for each movie
+      movies = await Promise.all(movies.map(async (movie) => {
+        const detailsResponse = await axios.get(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=${API_KEY}`);
+        return detailsResponse.data;
+      }));
       
       res.render('search', { movies, searchQuery: query });
     } catch (error) {

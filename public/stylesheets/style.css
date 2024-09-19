@@ -42,9 +42,6 @@ nav ul li a {
   text-decoration: none;
   color: #ffffff;
   font-size: 16px;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 16px;
   padding: 10px; /* Add padding for clickable area */
   transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
   border-radius: 5px;
@@ -86,7 +83,8 @@ nav ul li a:hover {
   color: #ffffff;
   padding: 10px;
   cursor: pointer;
-  border-radius: 5px 5px 5px 5px;  transition: background-color 0.3s ease; /* Smooth transition for button */
+  border-radius: 5px 5px 5px 5px;
+  transition: background-color 0.3s ease; /* Smooth transition for button */
 }
 
 .search-bar button:hover {
